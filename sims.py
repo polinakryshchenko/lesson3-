@@ -1,5 +1,9 @@
 import random
+import logging
 
+logging.basicConfig(filename='sims.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+def log_event(message):
+    logging.info(message)
 
 class House:
     def __init__(self):
@@ -131,7 +135,8 @@ class Human:
 
     def days_indexes(self, day):
         day_str = f'Today is the {day} of {self.name}\'s life'
-        print(f"{day_str:=^50}", "\n")
+        log_event(f"{day_str:=^50}")
+        #print(f"{day_str:=^50}", "\n")
         indexes_str = f'{self.name}\'s Indexes:'
         print(f"{indexes_str:^50}", "\n")
         print(f"money: {self.money}")
